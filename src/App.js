@@ -1,7 +1,12 @@
 import { BrowserRouter, Route, Routes,  } from "react-router-dom";
-import {Stats, Landing, Login, Profile, Addjob, Alljobs, Error, Register} from './pages'
-import Navbar from './components/Navbar'
-
+import {Landing, Register, Error, ProtectedRoute} from './pages'
+import {
+  Profile,
+  Addjob,
+  Alljobs,
+  Stats,
+  SharedLayout,
+} from "./pages/dashboard";
 
 function App() {
 
@@ -9,17 +14,25 @@ function App() {
     // <Landing />
     <>
       <BrowserRouter>
-      {/* <Navbar /> */}
         <Routes>
-          <Route path="/" element={<Stats />} />
-          <Route path="/landing" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/add-job" element={<Addjob />} />
-          <Route path="/all-jobs" element={<Alljobs />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <SharedLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Stats />} />
+            <Route path="all-jobs" element={<Alljobs />} />
+            <Route path="add-job" element={<Addjob />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+          <Route path="landing" element={<Landing />} />
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<Error />} />
-          <Route path="/register" element={<Register />}/>
         </Routes>
+        {/* <ToastContainer position="top-center" /> */}
       </BrowserRouter>
     </>
   );

@@ -1,34 +1,42 @@
-import React from 'react'
-import Wrapper from '../assets/wrappers/Navbar'
-import { MdOutlineSubject, MdArrowDropDown } from "react-icons/md";
-import {AiOutlineUser} from 'react-icons/ai';
-
-import Logo from '../assets/images/logo.svg'
+import Wrapper from '../assets/wrappers/Navbar';
+import { FaAlignLeft, FaUserCircle, FaCaretDown } from 'react-icons/fa';
+import Logo from './Logo';
+import { useState } from 'react';
 
 const Navbar = () => {
+  const [showLogout, setShowLogout] = useState(false);
+
   return (
     <Wrapper>
-      <div className="nav-center">
-        <button type="button" className="toggle-btn">
-          <MdOutlineSubject />
+      <div className='nav-center'>
+        <button type='button' className='toggle-btn'>
+          <FaAlignLeft />
         </button>
         <div>
-          <img src={Logo} alt="logo" />
-          <h3 className="logo-text">dashboard</h3>
+          <Logo />
+          <h3 className='logo-text'>dashboard</h3>
         </div>
-        <div className="btn-container">
-          <button className="btn">
-            <AiOutlineUser />
-            Ola
-            <MdArrowDropDown />
+        <div className='btn-container'>
+          <button
+            type='button'
+            className='btn'
+            onClick={() => setShowLogout(!showLogout)}
+          >
+            <FaUserCircle />
+            Olayiwola
+            <FaCaretDown />
           </button>
-          <div className="dropdown">
-            <button type="button" className="drop-down-btn">logout</button>
+          <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
+            <button
+              type='button'
+              className='dropdown-btn'
+            >
+              logout
+            </button>
           </div>
         </div>
       </div>
     </Wrapper>
   );
-  }
-
-export default Navbar
+};
+export default Navbar;
