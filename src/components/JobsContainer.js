@@ -11,7 +11,7 @@ const JobsContainer = () => {
   const { isLoading, jobs, page } = useSelector((store) => store.jobs);
   useEffect(() => {
     dispatch(getAllJobs)
-  },[])
+  },[dispatch])
 
 
   if (isLoading) {

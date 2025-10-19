@@ -16,7 +16,17 @@ import {
 
 const AddJob = () => {
   const dispatch = useDispatch();
-
+    const {
+    position,
+    company,
+    jobLocation,
+    jobType,
+    jobTypeOptions,
+    status,
+    statusOptions,
+    isEditing,
+    editJobId,
+  } = useSelector((store) => store.job);
 
    useEffect(() => {
      if (isEditing) {
@@ -34,21 +44,7 @@ const AddJob = () => {
        );
        return;
      }
-   }, []);
-
-
-  const {
-    isLoading,
-    position,
-    company,
-    jobLocation,
-    jobType,
-    jobTypeOptions,
-    status,
-    statusOptions,
-    isEditing,
-    editJobId,
-  } = useSelector((store) => store.job);
+   }, [company, dispatch, editJobId, isEditing, jobLocation, jobType, position, status]);
 
 
 if (isEditing) {
