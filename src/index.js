@@ -10,6 +10,8 @@ import "./index.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
+    <Auth0Provider>
     <App tab="home" />
+    </Auth0Provider>
   </Provider>
 );
