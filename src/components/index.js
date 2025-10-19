@@ -1,4 +1,4 @@
-import BigSidebar from './BigSidebar';
+import BigSidebar from './BigSideBar';
 import ChartsContainer from './ChartsContainer';
 import FormRow from './FormRow';
 import FormRowSelect from './FormRowSelect';
