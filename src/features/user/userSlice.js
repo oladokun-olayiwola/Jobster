@@ -65,10 +65,10 @@ const userSlice = createSlice({
       state.isLoading = true;
     },
     [registerUser.fulfilled]: (state, { payload }) => {
-      const { user } = payload;
+      const { user, token } = payload;
       state.isLoading = false;
       state.user = user;
-      addUserToLocalStorage(user);
+      addUserToLocalStorage(user, token);
       toast.success(`Hello There ${user.name}`);
     },
     [registerUser.rejected]: (state, { payload }) => {
@@ -79,10 +79,10 @@ const userSlice = createSlice({
       state.isLoading = true;
     },
     [loginUser.fulfilled]: (state, { payload }) => {
-      const { user } = payload;
+      const { user, token } = payload;
       state.isLoading = false;
       state.user = user;
-      addUserToLocalStorage(user);
+      addUserToLocalStorage(user, token);
       toast.success(`Welcome Back ${user.name}`);
     },
     [loginUser.rejected]: (state, { payload }) => {

@@ -21,7 +21,7 @@ const Landing = () => {
           <p>
             Stay organized in your job search. Track every application, interview, and offer — all in one place.
           </p>
-          <Link to='/register' className='btn btn-hero' onClick={loginWithRedirect}>
+          <Link to='/register' className='btn btn-hero'>
             Login/Register
           </Link>
         </div>
